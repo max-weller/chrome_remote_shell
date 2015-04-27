@@ -67,7 +67,7 @@ class Shell(object):
         if not tab:
             tab = 0
         wsurl = self.tablist[tab]['webSocketDebuggerUrl']
-        if self.soc.connected:
+        if self.soc and self.soc.connected:
             self.soc.close()
         self.soc = websocket.create_connection(wsurl)
         return self.soc
