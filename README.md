@@ -16,7 +16,7 @@ This library makes it easier to communicate with the Google Chrome remote
 debugging api from Python.  To enable the debugging api port, start Chrome
 with this option::
 
-    google-chrome --remote-shell-port=9222
+    google-chrome --remote-debugging-port=9222
   
   
 Note that Chromecast devices also open a remote debugging port and speak
