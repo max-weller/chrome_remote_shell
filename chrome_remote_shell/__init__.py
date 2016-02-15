@@ -62,13 +62,13 @@ class Shell(object):
            endpoint - you specify which with the tab parameter, defaulting
            to 0.  The parameter update_tabs, if True, will force a rescan
            of open tabs before connection. """
+        if self.soc and self.soc.connected:
+            self.soc.close()
         if update_tabs or not self.tablist:
             self.find_tabs()
         if not tab:
             tab = 0
         wsurl = self.tablist[tab]['webSocketDebuggerUrl']
-        if self.soc and self.soc.connected:
-            self.soc.close()
         self.soc = websocket.create_connection(wsurl)
         return self.soc
 
