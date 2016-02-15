@@ -1,6 +1,6 @@
 import chrome_remote_shell
 import sys
-from distutils.core import setup
+from setuptools import setup
 
 requirements = []
 
