@@ -43,7 +43,12 @@ in a new tab::
     # equivalent to the api call above
     >>> shell.open_url('http://www.aldaily.com/')
 
-#TODO Installation 
+# Installation 
+`
+pip install --user greenlet
+sudo pip install websocket
+sudo python setup.py install
+`
 
 
 #CHANGELOG
