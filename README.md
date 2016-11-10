@@ -44,11 +44,11 @@ in a new tab::
     >>> shell.open_url('http://www.aldaily.com/')
 
 # Installation 
-`
-pip install --user greenlet
-sudo pip install websocket
-sudo python setup.py install
-`
+
+    pip install --user greenlet
+    sudo pip install websocket
+    sudo python setup.py install
+
 
 
 #CHANGELOG
