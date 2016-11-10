@@ -46,7 +46,7 @@ in a new tab::
 # Installation 
 
     pip install --user greenlet
-    sudo pip install websocket
+    sudo pip install websocket-client 
     sudo python setup.py install
 
 
