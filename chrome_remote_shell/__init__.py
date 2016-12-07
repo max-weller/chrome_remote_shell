@@ -86,22 +86,22 @@ class Shell(object):
         self.tablist = json.loads(response.text)
         return self.tablist
 
+    def close_tab(self, index):
+        """Close the tab specified by its index in self.tablist"""
+        tab_id = self.tablist[index]['id']
+        response = requests.get("http://%s:%s/json/close/%s" % (self.host, self.port, tab_id))
+	return response.text
+
     def open_url(self, url):
         """Open a URL in the oldest tab."""
         if not self.soc or not self.soc.connected:
             self.connect(tab=0)
         # force the 'oldest' tab to load url
-        navcom = json.dumps({"id": 0,
-                             "method": "Page.navigate",
-                             "params": {"url": url}})
-        # This code would open a new window, but browsers really dont
-        # like doing so.  And, the results are irritating at best.
-        # navcom=json.dumps({"id":0,"method":"Runtime.evaluate",
-        #  "params":{"expression": "window.open('%s', #'_blank',
-        # 'toolbar=1,scrollbars=1,location=1,statusbar=0,menubar=1,resizable=1'
-        # )" % (url) }})
-        self.soc.send(navcom)
-        return self.soc.recv()
+        return self.do('Page.navigate', url=url)
+
+    def do(method, **params):
+        self.soc.send(json.dumps({"id": 0, "method": method, "params": params}))
+        return json.loads(self.soc.recv())
 
 
 if __name__ == '__main__':

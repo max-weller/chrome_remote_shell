@@ -1,11 +1,9 @@
 #chrome_remote_shell
 
-
-###Client for the Google Chrome browser's remote debugging shell.
+###Client for the Google Chrome browser's remote debugging api.
 
 New update replaces old api code with new - no longer compatibile with 3+ year 
 old chrome, now compatible with Chrome Remote Debugging Protocol
-
 
   See <https://developer.chrome.com/devtools/docs/debugger-protocol> for details on 
   Chrome's remote debugging protocol.
@@ -50,8 +48,17 @@ in a new tab::
     sudo python setup.py install
 
 
+# Useful links
+
+* If you want to run chrome unattended, you need command line flags. The full list is available here: http://peter.sh/experiments/chromium-command-line-switches/
+* The list of all API commands and events is here: https://chromedevtools.github.io/debugger-protocol-viewer/tot/
+
 
 #CHANGELOG
+*2016 Dec 8.* Added helper routines to Close tabs, to send arbitrary commands. Included example for network profiling.
+
+*2016 Dec 7.* Pulled together useful stuff from unmerged pull requests and forks on Github
+
 *2014 Sept 15.* Updated to work with modern Chrome Remote Debugging protocol
 
 *2014 Sept 15.* Package maintaince transitioned to Fred Clift
