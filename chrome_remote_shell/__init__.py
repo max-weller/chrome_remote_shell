@@ -1,6 +1,6 @@
 """ Client for the Google Chrome browser's remote debugging api.
 
-    > a = Shell(host='localhost', port=92222)
+    > a = Shell(host='localhost', port=9222)
 
     a.tablist has a list of details on open tabs.
 
