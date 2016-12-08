@@ -99,7 +99,7 @@ class Shell(object):
         # force the 'oldest' tab to load url
         return self.do('Page.navigate', url=url)
 
-    def do(method, **params):
+    def do(self, method, **params):
         self.soc.send(json.dumps({"id": 0, "method": method, "params": params}))
         return json.loads(self.soc.recv())
 
